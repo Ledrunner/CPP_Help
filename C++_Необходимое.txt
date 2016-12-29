@@ -98,6 +98,15 @@ if (!cin)
 	cin.clear();
 	fflush(stdin);
 }
+-----------------------------------------
+Или так:
+int a;
+while (!(cin >> a) || (cin.peek() != '\n'))
+{
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Input error! Retry input" << endl;
+}
 *************************************
 Если gets() или cin.getline (var, size) вложены в switch
 необходимо очистить поток перед вводом.
